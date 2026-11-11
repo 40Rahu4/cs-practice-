@@ -77,3 +77,45 @@ print("shape:", middle_fragment.shape)
 print("Правый нижний блок 2×2:")
 print(bottom_right)
 print("shape:", bottom_right.shape)
+
+# Задание 5. Изменение массива с помощью срезов
+
+vector = np.array([10, 20, 30, 40, 50])
+vector[1:4] = 0
+
+small_matrix = np.arange(1, 10).reshape(3, 3)
+small_matrix[0, :] = -1
+small_matrix[1:, 1:] = 9
+
+changed_hours = hours.copy()
+
+# .copy() нужна, чтобы changed_hours стал независимой копией hours.
+# Иначе срез вернёт представление исходного массива, и изменение
+# changed_hours также изменит исходный hours.
+changed_hours[2:5] = 99
+changed_hours[::2] = -1
+
+print("changed_hours:")
+print(changed_hours)
+print("Исходный hours:")
+print(hours)
+
+changed_matrix = matrix.copy()
+changed_matrix[1, :] = 0
+changed_matrix[:, -1] = -1
+changed_matrix[1:4, 1:4] = 100
+
+print("Итоговая матрица:")
+print(changed_matrix)
+print("Исходная матрица:")
+print(matrix)
+
+# Задание 6. Изменение формы
+
+numbers = np.arange(12)
+table = numbers.reshape(3, 4)
+transposed = table.T
+
+print("Форма numbers:", numbers.shape)
+print("Форма table:", table.shape)
+print("Форма transposed:", transposed.shape)
